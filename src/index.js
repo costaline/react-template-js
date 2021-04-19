@@ -1,15 +1,33 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+
+import { App } from '@@/app';
+import { store } from '@@/init/store';
+import { Loader } from '@@/shared/elements';
+import { ErrorBoundary } from '@@/shared/hocs';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
+import '@@/assets/styles/index.scss';
+
+const app = (
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <Provider store={store}>
+      <BrowserRouter>
+        <Suspense fallback={<Loader />}>
+          <ErrorBoundary>
+            <App />
+          </ErrorBoundary>
+        </Suspense>
+      </BrowserRouter>
+    </Provider>
+  </React.StrictMode>
 );
+
+const path = document.getElementById('root');
+
+ReactDOM.render(app, path);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
