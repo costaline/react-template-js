@@ -15,11 +15,11 @@ const app = (
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <Suspense fallback={<Loader />}>
-          <ErrorBoundary>
+        <ErrorBoundary>
+          <Suspense fallback={<Loader />}>
             <App />
-          </ErrorBoundary>
-        </Suspense>
+          </Suspense>
+        </ErrorBoundary>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
