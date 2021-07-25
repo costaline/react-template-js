@@ -1,0 +1,11 @@
+/* stylelint-disable */
+@use 'variables';
+@use 'sass:meta';
+
+$vars: meta.module-variables('variables');
+
+:export {
+  @each $key, $value in $vars {
+    #{unquote($key)}: $value;
+  }
+}
