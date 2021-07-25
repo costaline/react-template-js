@@ -20,6 +20,11 @@ Builds the app for production to the build folder.
 Runs the app in the production mode.
 Open http://localhost:5000 to view it in your browser.
 
+`npm run build:treemap`
+
+Visualizes size of webpack output files with an interactive zoomable treemap.
+Open http://localhost:5000 to view it in your browser.
+
 `npm test`
 
 Launches the test runner in the interactive watch mode.
