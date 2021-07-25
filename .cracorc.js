@@ -1,66 +1,35 @@
+const cracoAlias = require('craco-alias');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const sassResourcesLoader = require('./.craco/sassResourcesLoader');
+
+const isTreemap = process.env.REACT_APP_BUNDLE_TREEMAP === 'true';
+
 module.exports = function({ env }) {
+  const plugins = [];
+
+  if (isTreemap) plugins.push(new BundleAnalyzerPlugin());
+
   return {
+    webpack: {
+      plugins: [...plugins],
+    },
     plugins: [
       {
-        plugin: require('craco-alias'),
+        plugin: cracoAlias,
         options: {
           source: 'jsconfig',
           baseUrl: require('./jsconfig.json').compilerOptions.baseUrl,
         },
       },
       {
-        plugin: sassResourceLoader(),
+        plugin: sassResourcesLoader,
         options: {
-          resources: [
-            './src/assets/styles/prepend-resources.scss',
-          ],
+          resources: ['./src/assets/styles/prepend-resources.scss'],
+          hoistUseStatements: true,
         },
       }
     ]
   };
 }
 
-/*
- * from https://github.com/tilap/craco-sass-resources-loader
- * to fix resolve dependencies error
- */
 
-function sassResourceLoader() {
-  return {
-    overrideWebpackConfig: ({ webpackConfig, pluginOptions }) => {
-      // Check webpack config
-      if (
-        !webpackConfig ||
-        !webpackConfig.module ||
-        !webpackConfig.module.rules ||
-        typeof webpackConfig.module.rules !== 'object'
-      ) {
-        throw new Error('craco-sass-resources-loader error: no valid webpackConfig.module.rules');
-      }
-
-      // Add the loader rule where needed
-      const output = {...webpackConfig};
-      Object.keys(output.module.rules).forEach((ruleKey, ruleIndex) => {
-        const rule = output.module.rules[ruleKey];
-        if (Object.prototype.hasOwnProperty.call(rule, 'oneOf')) {
-          rule.oneOf.forEach((oneOf, oneOfIndex) => {
-            if (
-              oneOf.test && oneOf.use &&
-              (`${oneOf.test}`.includes('scss') || `${oneOf.test}`.includes('sass'))
-            ) {
-              const options = pluginOptions && pluginOptions.resources ? {
-                resources: pluginOptions.resources,
-              } : {};
-
-              output.module.rules[ruleIndex].oneOf[oneOfIndex].use.push({
-                loader: 'sass-resources-loader',
-                options,
-              })
-            }
-          })
-        }
-      })
-      return output;
-    }
-  }
-}
