@@ -44,6 +44,9 @@ module.exports = {
     'lines-between-class-members': ['warn', 'always'],
     'no-console': 'warn',
     'no-fallthrough': ['warn'],
+    'no-unused-vars': ['warn', {
+      "varsIgnorePattern": "^_$", "argsIgnorePattern": "^_$"
+    }],
     'padding-line-between-statements': ['warn',
       { blankLine: 'always', prev: '*', next: 'return' },
       { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*'},
@@ -54,6 +57,7 @@ module.exports = {
     'prettier/prettier': 'warn',
 
     'react/destructuring-assignment': ['warn', 'always'],
+    "react/jsx-key": ['warn', {'checkKeyMustBeforeSpread': true}],
     'react/jsx-sort-props': ['warn', {
       'callbacksLast': true,
       'shorthandFirst': true,
@@ -67,42 +71,42 @@ module.exports = {
 
     'simple-import-sort/exports': 'warn',
     'simple-import-sort/imports': ['warn', { groups: [
-      [
-        // React
-        '^(react)$',
-        // Node.js builtins
-        `^(${require('module').builtinModules.join('|')})(/|$)`,
-        // Other packages
-        '^@?\\w'
-      ],
-      [
-        // Side effects
-        '^\\u0000'
-      ],
-      [
-        // Alias imports
-        '^(@|@@|@@(\\w+-?)*)(/.*(?<!\\.(jpe?g|png|svg|bmp|webp|s?css))$)',
-        // Parent imports
-        '^\\.\\.(?!/?$)',
-        '^\\.\\./?$',
-        // Relative imports
-        '^\\./(?=.*!/)(?!/?$)',
-        '^\\.(?!/?$)',
-        '^\\./?$',
-      ],
-      [
-        //Styles
-        '\\.module\\.s?css$',
-        '\\.scoped\\.s?css$',
-        '\\.s?css$',
-        // Images
-        '^.+\\.bmp$',
-        '^.+\\.jpe?g$',
-        '^.+\\.png$',
-        '^.+\\.svg$',
-        '^.+\\.webp$'
-      ]
-    ]}],
+        [
+          // React
+          '^(react)$',
+          // Node.js builtins
+          `^(${require('module').builtinModules.join('|')})(/|$)`,
+          // Other packages
+          '^@?\\w'
+        ],
+        [
+          // Side effects
+          '^\\u0000'
+        ],
+        [
+          // Alias imports
+          '^(@|@@|@@(\\w+-?)*)(/.*(?<!\\.(jpe?g|png|svg|bmp|webp|s?css))$)',
+          // Parent imports
+          '^\\.\\.(?!/?$)',
+          '^\\.\\./?$',
+          // Relative imports
+          '^\\./(?=.*!/)(?!/?$)',
+          '^\\.(?!/?$)',
+          '^\\./?$',
+        ],
+        [
+          //Styles
+          '\\.module\\.s?css$',
+          '\\.scoped\\.s?css$',
+          '\\.s?css$',
+          // Images
+          '^.+\\.bmp$',
+          '^.+\\.jpe?g$',
+          '^.+\\.png$',
+          '^.+\\.svg$',
+          '^.+\\.webp$'
+        ]
+      ]}],
   },
 };
 
