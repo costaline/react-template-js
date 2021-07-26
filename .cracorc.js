@@ -13,6 +13,9 @@ module.exports = function({ env }) {
     webpack: {
       plugins: [...plugins],
     },
+    babel: {
+      presets: ["@emotion/babel-preset-css-prop"],
+    },
     plugins: [
       {
         plugin: cracoAlias,
