@@ -4,10 +4,10 @@ import styled from '@emotion/styled';
 import './404.scss';
 
 let Header = styled.h1`
-  color: white;
-  font-weight: bold;
-  font-size: 2rem;
   margin: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
 `;
 
 export const Page404 = () => {
@@ -15,11 +15,11 @@ export const Page404 = () => {
     <div
       className="page-404"
       css={css`
-        background-color: lightblue;
-        height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
+        height: 100vh;
+        background-color: lightblue;
       `}
     >
       <Header
