@@ -31,7 +31,7 @@ module.exports = {
     },
   },
 
-  plugins: ['import', 'simple-import-sort'],
+  plugins: ['import', 'simple-import-sort', 'unused-imports'],
 
   extends: [
     'eslint:recommended',
@@ -44,9 +44,7 @@ module.exports = {
     'lines-between-class-members': ['warn', 'always'],
     'no-console': 'warn',
     'no-fallthrough': ['warn'],
-    'no-unused-vars': ['warn', {
-      "varsIgnorePattern": "^_$", "argsIgnorePattern": "^_$"
-    }],
+    'no-unused-vars': 'off',
     'padding-line-between-statements': ['warn',
       { blankLine: 'always', prev: '*', next: 'return' },
       { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*'},
@@ -66,6 +64,8 @@ module.exports = {
       'noSortAlphabetically': false,
       'reservedFirst': true,
     }],
+    'react/jsx-uses-react': 'warn',
+    'react/jsx-uses-vars': 'warn',
     'react/prop-types': 'warn',
     'react/self-closing-comp': ['warn', { component: true, html: true }],
 
@@ -107,6 +107,10 @@ module.exports = {
           '^.+\\.webp$'
         ]
       ]}],
+
+    "unused-imports/no-unused-imports": "warn",
+    "unused-imports/no-unused-vars": [ "warn", { "varsIgnorePattern": "^_$", "argsIgnorePattern": "^_$" }
+    ]
   },
 };
 
