@@ -85,7 +85,7 @@ module.exports = {
         ],
         [
           // Alias imports
-          '^(@|@@|@@(\\w+-?)*)(/.*(?<!\\.(jpe?g|png|svg|bmp|webp|s?css))$)',
+          '^(@|@@|@@(\\w+-?)*)(/.*(?<!\\.(jpe?g|png|svg|bmp|webp|css|scss|sass))$)',
           // Parent imports
           '^\\.\\.(?!/?$)',
           '^\\.\\./?$',
@@ -96,9 +96,9 @@ module.exports = {
         ],
         [
           //Styles
-          '\\.module\\.s?css$',
-          '\\.scoped\\.s?css$',
-          '\\.s?css$',
+          '\\.module\\.(css|scss|sass)$',
+          '\\.scoped\\.(css|scss|sass)$',
+          '\\.(css|scss|sass)$',
           // Images
           '^.+\\.bmp$',
           '^.+\\.jpe?g$',
