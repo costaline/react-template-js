@@ -1,7 +1,8 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true,
+    es2021: true,
+    node: true,
     jest: true,
   },
 
@@ -12,14 +13,32 @@ module.exports = {
     module: true,
   },
 
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:prettier/recommended',
+  ],
+
+  parser: '@babel/eslint-parser',
+
   parserOptions: {
-    sourceType: 'module',
     ecmaFeatures: {
-      experimentalObjectRestSpread: true,
       jsx: true,
-      es6: true,
     },
+    ecmaVersion: 12,
+    sourceType: 'module',
+    requireConfigFile: false,
+    babelOptions: {
+      presets: ["@babel/preset-react"]
+    }
   },
+
+  plugins: [
+    'import',
+    'react',
+    'simple-import-sort',
+    'unused-imports'
+  ],
 
   settings: {
     react: { version: 'detect' },
@@ -31,19 +50,10 @@ module.exports = {
     },
   },
 
-  plugins: ['import', 'simple-import-sort', 'unused-imports'],
-
-  extends: [
-    'eslint:recommended',
-    'react-app',
-    'react-app/jest',
-    'plugin:prettier/recommended',
-  ],
-
   rules: {
     'lines-between-class-members': ['warn', 'always'],
     'no-console': 'warn',
-    'no-fallthrough': ['warn'],
+    'no-fallthrough': 'warn',
     'no-unused-vars': 'off',
     'padding-line-between-statements': ['warn',
       { blankLine: 'always', prev: '*', next: 'return' },
@@ -54,7 +64,9 @@ module.exports = {
     'import/no-unresolved': 'error',
     'prettier/prettier': 'warn',
 
-    'react/destructuring-assignment': ['warn', 'always'],
+    'react/destructuring-assignment': ['warn', 'always', {
+      ignoreClassFields: true
+    }],
     "react/jsx-key": ['warn', {'checkKeyMustBeforeSpread': true}],
     'react/jsx-sort-props': ['warn', {
       'callbacksLast': true,
@@ -67,49 +79,51 @@ module.exports = {
     'react/jsx-uses-react': 'warn',
     'react/jsx-uses-vars': 'warn',
     'react/prop-types': 'warn',
+    'react/react-in-jsx-scope': 'off',
     'react/self-closing-comp': ['warn', { component: true, html: true }],
 
     'simple-import-sort/exports': 'warn',
     'simple-import-sort/imports': ['warn', { groups: [
-        [
-          // React
-          '^(react)$',
-          // Node.js builtins
-          `^(${require('module').builtinModules.join('|')})(/|$)`,
-          // Other packages
-          '^@?\\w'
-        ],
-        [
-          // Side effects
-          '^\\u0000'
-        ],
-        [
-          // Alias imports
-          '^(@|@@|@@(\\w+-?)*)(/.*(?<!\\.(jpe?g|png|svg|bmp|webp|css|scss|sass))$)',
-          // Parent imports
-          '^\\.\\.(?!/?$)',
-          '^\\.\\./?$',
-          // Relative imports
-          '^\\./(?=.*!/)(?!/?$)',
-          '^\\.(?!/?$)',
-          '^\\./?$',
-        ],
-        [
-          //Styles
-          '\\.module\\.(css|scss|sass)$',
-          '\\.scoped\\.(css|scss|sass)$',
-          '\\.(css|scss|sass)$',
-          // Images
-          '^.+\\.bmp$',
-          '^.+\\.jpe?g$',
-          '^.+\\.png$',
-          '^.+\\.svg$',
-          '^.+\\.webp$'
-        ]
-      ]}],
+      [
+        // React
+        '^(react)$',
+        // Node.js builtins
+        `^(${require('module').builtinModules.join('|')})(/|$)`,
+        // Other packages
+        '^@?\\w'
+      ],
+      [
+        // Side effects
+        '^\\u0000'
+      ],
+      [
+        // Alias imports
+        '^(@|@@|@@(\\w+-?)*)(/.*(?<!\\.(jpe?g|png|svg|bmp|webp|css|scss|sass))$)',
+        // Parent imports
+        '^\\.\\.(?!/?$)',
+        '^\\.\\./?$',
+        // Relative imports
+        '^\\./(?=.*!/)(?!/?$)',
+        '^\\.(?!/?$)',
+        '^\\./?$',
+      ],
+      [
+        //Styles
+        '\\.module\\.(css|scss|sass)$',
+        '\\.scoped\\.(css|scss|sass)$',
+        '\\.(css|scss|sass)$',
+        // Images
+        '^.+\\.bmp$',
+        '^.+\\.jpe?g$',
+        '^.+\\.png$',
+        '^.+\\.svg$',
+        '^.+\\.webp$'
+      ]
+    ] }],
 
     "unused-imports/no-unused-imports": "warn",
-    "unused-imports/no-unused-vars": [ "warn", { "varsIgnorePattern": "^_$", "argsIgnorePattern": "^_$" }
+    "unused-imports/no-unused-vars": [ "warn", {
+      "varsIgnorePattern": "^_$", "argsIgnorePattern": "^_$" }
     ]
   },
 };
