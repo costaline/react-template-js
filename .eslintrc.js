@@ -14,8 +14,8 @@ module.exports = {
   },
 
   extends: [
-    'eslint:recommended',
     'plugin:react/recommended',
+    'standard',
     'plugin:prettier/recommended',
   ],
 
@@ -23,7 +23,7 @@ module.exports = {
 
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 12,
     sourceType: 'module',
@@ -37,20 +37,23 @@ module.exports = {
     'import',
     'react',
     'simple-import-sort',
-    'unused-imports'
+    'unused-imports',
   ],
 
   settings: {
-    react: { version: 'detect' },
     'import/resolver': {
       alias: {
         map: mapAliases(),
         extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
       },
     },
+    react: {
+      version: 'detect'
+    },
   },
 
   rules: {
+    'dot-notation': 'off',
     'lines-between-class-members': ['warn', 'always'],
     'no-console': 'warn',
     'no-fallthrough': 'warn',
@@ -61,7 +64,9 @@ module.exports = {
       { blankLine: 'any', prev: ['const', 'let', 'var'], next: ['const', 'let', 'var']},
     ],
 
+    'import/export': 'off',
     'import/no-unresolved': 'error',
+
     'prettier/prettier': 'warn',
 
     'react/destructuring-assignment': ['warn', 'always', {
@@ -118,15 +123,15 @@ module.exports = {
         '^.+\\.png$',
         '^.+\\.svg$',
         '^.+\\.webp$'
-      ]
+      ],
     ] }],
 
     "unused-imports/no-unused-imports": "warn",
     "unused-imports/no-unused-vars": [ "warn", {
       "varsIgnorePattern": "^_$", "argsIgnorePattern": "^_$" }
     ]
-  },
-};
+  }
+}
 
 function mapAliases() {
   const { paths, baseUrl } = require('./jsconfig.json').compilerOptions;
@@ -145,3 +150,4 @@ function mapAliases() {
 
   return Object.entries(paths).map(toMappedAliases).flat();
 }
+

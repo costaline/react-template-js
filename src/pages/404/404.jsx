@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 import './404.scss';
 
-let Header = styled.h1`
+const Header = styled.h1`
   margin: 0;
   font-size: 2rem;
   font-weight: bold;
