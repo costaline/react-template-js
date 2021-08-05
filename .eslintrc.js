@@ -57,6 +57,7 @@ module.exports = {
     'lines-between-class-members': ['warn', 'always'],
     'no-console': 'warn',
     'no-fallthrough': 'warn',
+    'no-use-before-define': ["error", { "functions": false }],
     'no-unused-vars': 'off',
     'padding-line-between-statements': ['warn',
       { blankLine: 'always', prev: '*', next: 'return' },
