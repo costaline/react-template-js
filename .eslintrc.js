@@ -74,6 +74,9 @@ module.exports = {
     'react/destructuring-assignment': ['warn', 'always', {
       ignoreClassFields: true
     }],
+    'react/jsx-curly-brace-presence': ['warn',
+      { props: 'never', children: 'never' },
+    ],
     "react/jsx-key": ['warn', {'checkKeyMustBeforeSpread': true}],
     'react/jsx-sort-props': ['warn', {
       'callbacksLast': true,
