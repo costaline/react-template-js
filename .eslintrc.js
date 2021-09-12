@@ -37,7 +37,6 @@ module.exports = {
     'import',
     'react',
     'simple-import-sort',
-    'unused-imports',
   ],
 
   settings: {
@@ -58,7 +57,9 @@ module.exports = {
     'no-console': 'warn',
     'no-fallthrough': 'warn',
     'no-use-before-define': ["error", { "functions": false }],
-    'no-unused-vars': 'off',
+    'no-unused-vars': ['warn', {
+      "varsIgnorePattern": "^_$", "argsIgnorePattern": "^_$"
+    }],
     'padding-line-between-statements': ['warn',
       { blankLine: 'always', prev: '*', next: 'return' },
       { blankLine: 'always', prev: ['const', 'let', 'var'], next: '*'},
@@ -126,11 +127,6 @@ module.exports = {
         '^.+\\.webp$'
       ],
     ] }],
-
-    "unused-imports/no-unused-imports": "warn",
-    "unused-imports/no-unused-vars": [ "warn", {
-      "varsIgnorePattern": "^_$", "argsIgnorePattern": "^_$" }
-    ]
   }
 }
 
