@@ -95,16 +95,16 @@ module.exports = {
     'simple-import-sort/exports': 'warn',
     'simple-import-sort/imports': ['warn', { groups: [
       [
+        // Side effects
+        '^\\u0000'
+      ],
+      [
         // React
         '^(react)$',
         // Node.js builtins
         `^(${require('module').builtinModules.join('|')})(/|$)`,
         // Other packages
         '^@?\\w'
-      ],
-      [
-        // Side effects
-        '^\\u0000'
       ],
       [
         // Alias imports
