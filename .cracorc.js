@@ -2,6 +2,7 @@ const cracoAlias = require('craco-alias');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const cracoStyledJsx = require('craco-styled-jsx')
 const sassResourcesLoader = require('./.craco/sassResourcesLoader');
+const sassResources = require('./src/assets/styles')
 
 const isTreemap = process.env.REACT_APP_BUNDLE_TREEMAP === 'true';
 
@@ -28,7 +29,7 @@ module.exports = function({ env }) {
       {
         plugin: sassResourcesLoader,
         options: {
-          resources: ['./src/assets/styles/prepend-resources.scss'],
+          resources: sassResources,
           hoistUseStatements: true,
         },
       },
@@ -43,5 +44,6 @@ module.exports = function({ env }) {
     ]
   };
 }
+
 
 
