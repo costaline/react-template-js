@@ -16,6 +16,8 @@ module.exports = {
       "except": [ "blockless-after-same-name-blockless", "first-nested" ],
       "ignoreAtRules": [ "else", "include" ]
     }],
+    "declaration-colon-space-after": "always-single-line",
+    "declaration-colon-space-before": "never",
     "indentation": 2,
     "rule-empty-line-before": ["always", {
       "except": ["after-single-line-comment", "first-nested"]
