@@ -9,7 +9,9 @@ import { Loader } from '@@/shared/elements';
 import { ErrorBoundary } from '@@/shared/hocs';
 import reportWebVitals from './reportWebVitals';
 
-import '@@/assets/styles/index.scss';
+import 'reseter.css';
+import '@@/assets/fonts/index.scss';
+import '@@/assets/styles/common.scss';
 
 const app = (
   <React.StrictMode>

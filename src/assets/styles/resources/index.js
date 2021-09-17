@@ -1,4 +1,4 @@
-/* resource for sass-resources-loader in .cracorc.js */
+/* resources for sass-loader in .cracorc.js */
 const path = require('path');
 
 const resources = ['variables.scss'];

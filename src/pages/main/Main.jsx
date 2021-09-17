@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 
 import { Logo } from '@@/shared/elements';
 
-import './main.scss';
+import './main.sass';
 
 export const Main = () => (
   <div className="main">

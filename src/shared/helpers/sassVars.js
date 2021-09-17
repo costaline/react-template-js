@@ -1,1 +1,1 @@
-export * as sassVars from '@@/assets/styles/export-vars-to-js.module.scss';
+export * as sassVars from '@@/assets/styles/resources/export-vars-to-js.module.scss';
