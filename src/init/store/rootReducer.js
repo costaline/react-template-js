@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux';
 
-const appReducer = combineReducers({});
+import { POSTS_SLICE_NAME, postsReducer } from '@@/pages/posts/_store';
+
+const appReducer = combineReducers({
+  [POSTS_SLICE_NAME]: postsReducer,
+});
 
 /* https://stackoverflow.com/a/35641992 */
 export const rootReducer = (state, action) => {

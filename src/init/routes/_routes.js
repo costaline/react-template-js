@@ -10,6 +10,10 @@ export const routes = [
     },
   },
   {
+    path: '/posts',
+    component: lazy(() => import('@@/pages/posts')),
+  },
+  {
     path: '/',
     component: lazy(() => import('@@/pages/404')),
   },
