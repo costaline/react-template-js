@@ -1,8 +1,6 @@
-import { Slice } from '@@/libs/store/Slice';
+import { Slice } from '@@/libs/store/slice';
 
 const messagesSlice = new Slice('messages');
-
-export const MESSAGES_SLICE_NAME = messagesSlice.name;
 
 export const fetchMessages = messagesSlice.create('fetchMessages', {
   async: true,
@@ -19,4 +17,4 @@ export const asyncCounter = messagesSlice.create('asyncCounter', {
 // console.log('slice Cases: ', messagesSlice.cases);
 // console.log('slice Actions: ', messagesSlice.actions.decrementCounter);
 
-export const { actions } = messagesSlice;
+export const { actions, name: MESSAGES_SLICE_NAME } = messagesSlice;
