@@ -14,6 +14,10 @@ export const routes = [
     component: lazy(() => import('@@/pages/posts')),
   },
   {
+    path: '/messages',
+    component: lazy(() => import('@@/pages/messages')),
+  },
+  {
     path: '/',
     component: lazy(() => import('@@/pages/404')),
   },
