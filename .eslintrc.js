@@ -53,7 +53,7 @@ module.exports = {
 
   rules: {
     'dot-notation': 'off',
-    'lines-between-class-members': ['warn', 'always'],
+    'lines-between-class-members': ['warn', 'always', { "exceptAfterSingleLine": true }],
     'no-console': 'warn',
     'no-fallthrough': 'warn',
     'no-use-before-define': ["error", { "functions": false }],
