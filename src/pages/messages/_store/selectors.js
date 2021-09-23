@@ -2,9 +2,9 @@ import { fetchMessages, MESSAGES_SLICE_NAME } from './init';
 
 export const getMessages = (state) => state[MESSAGES_SLICE_NAME].messages;
 export const getIsMessagesRequesting = (state) =>
-  fetchMessages.selector.isRequesting(state[MESSAGES_SLICE_NAME]);
+  fetchMessages.selector.isRequesting(state[MESSAGES_SLICE_NAME].asyncTasks);
 export const getMessagesRequestError = (state) =>
-  fetchMessages.selector.error(state[MESSAGES_SLICE_NAME]);
+  fetchMessages.selector.error(state[MESSAGES_SLICE_NAME].errors);
 
 export const getMessagesSlice = (state) => ({
   data: getMessages(state),

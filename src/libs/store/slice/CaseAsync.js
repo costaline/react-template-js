@@ -47,8 +47,8 @@ export class CaseAsync {
   };
 
   /** @private */
-  _isRequesting = (sliceState) => {
-    return asyncTaskHelpers.isRequesting(sliceState, this.name);
+  _isRequesting = (asyncTasks) => {
+    return asyncTaskHelpers.isRequesting(asyncTasks, this.name);
   };
 
   /** @private */
@@ -62,8 +62,8 @@ export class CaseAsync {
   };
 
   /** @private */
-  _getError = (sliceState) => {
-    return errorHelpers.get(sliceState, this.name);
+  _getError = (errors) => {
+    return errorHelpers.get(errors, this.name);
   };
 
   /** @private */

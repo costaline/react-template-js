@@ -1,3 +1,25 @@
+/**
+ *
+ * @typedef {Object} ErrorObject
+ * @property {string} [name]
+ * @property {string} message
+ */
+
+/**
+ * @typedef {string|ErrorObject} ErrorPayload
+ */
+
+/**
+ * @typedef {Object<string,ErrorPayload>} Errors
+ */
+
+/**
+ *
+ * @param {Errors|{}} errors
+ * @param {string} name
+ * @param {ErrorPayload} error
+ * @return {Errors|{}}
+ */
 const add = (errors, name, error) => {
   const result = { ...errors };
 
@@ -6,10 +28,22 @@ const add = (errors, name, error) => {
   return result;
 };
 
-const get = (sliceState, name) => {
-  return sliceState.errors[name];
+/**
+ *
+ * @param {Errors|{}} errors
+ * @param {string} name
+ * @return {ErrorPayload|null}
+ */
+const get = (errors, name) => {
+  return errors[name] || null;
 };
 
+/**
+ *
+ * @param {Errors|{}} errors
+ * @param {string} name
+ * @return {Errors|{}}
+ */
 const remove = (errors, name) => {
   const result = { ...errors };
 
