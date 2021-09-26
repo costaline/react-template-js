@@ -18,6 +18,10 @@ export const routes = [
     component: lazy(() => import('@@/pages/messages')),
   },
   {
+    path: '/todos',
+    component: lazy(() => import('@@/pages/todos')),
+  },
+  {
     path: '/',
     component: lazy(() => import('@@/pages/404')),
   },
