@@ -5,6 +5,7 @@ import { posts2Reducer } from '@@/pages/posts-2/_store';
 import { posts3Reducer } from '@@/pages/posts-3/_store';
 import { posts4Reducer } from '@@/pages/posts-4/_store';
 import { posts5Reducer } from '@@/pages/posts-5/_store';
+import { POSTS_6_SLICE_NAME, posts6Reducer } from '@@/pages/posts-6/_store';
 
 const combined = combineReducers({
   posts1: posts1Reducer,
@@ -12,6 +13,7 @@ const combined = combineReducers({
   posts3: posts3Reducer,
   posts4: posts4Reducer,
   posts5: posts5Reducer,
+  [POSTS_6_SLICE_NAME]: posts6Reducer,
 });
 
 /* https://stackoverflow.com/a/35641992 */
