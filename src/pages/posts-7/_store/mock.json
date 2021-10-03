@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "1Name",
+    "text": "Lorem 1 ipsum dolor sit amen",
+    "liked": false
+  },
+  {
+    "id": 2,
+    "name": "2Name",
+    "text": "Lorem 2 ipsum dolor sit amen",
+    "liked": false
+  },
+  {
+    "id": 3,
+    "name": "3Name",
+    "text": "Lorem 3 ipsum dolor sit amen",
+    "liked": false
+  },
+  {
+    "id": 4,
+    "name": "4Name",
+    "text": "Lorem 4 ipsum dolor sit amen",
+    "liked": false
+  },
+  {
+    "id": 5,
+    "name": "5Name",
+    "text": "Lorem 5 ipsum dolor sit amen",
+    "liked": false
+  }
+]
