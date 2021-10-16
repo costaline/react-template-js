@@ -15,6 +15,7 @@ module.exports = {
 
   extends: [
     'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
     'standard',
     'plugin:prettier/recommended',
   ],
@@ -68,6 +69,8 @@ module.exports = {
     'spaced-comment': 'warn',
 
     'import/export': 'off',
+    "import/newline-after-import": 'warn',
+    'import/no-anonymous-default-export': 'off',
     'import/no-unresolved': 'error',
 
     'prettier/prettier': 'warn',
