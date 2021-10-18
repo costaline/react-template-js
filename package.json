@@ -51,7 +51,7 @@
     "@emotion/babel-preset-css-prop": "^11.2.0",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.3.0",
+    "@testing-library/user-event": "^13.4.1",
     "craco-alias": "^3.0.1",
     "editorconfig-checker": "^4.0.2",
     "eslint": "^7.32.0",
