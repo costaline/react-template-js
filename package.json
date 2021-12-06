@@ -49,7 +49,7 @@
     "@babel/preset-react": "^7.16.0",
     "@craco/craco": "^6.4.2",
     "@emotion/babel-preset-css-prop": "^11.2.0",
-    "@testing-library/jest-dom": "^5.15.1",
+    "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "craco-alias": "^3.0.1",
